@@ -11,11 +11,22 @@ var createPizza = function(size, toppings, delivery, price) {
     return newPizza;
 }
 
-Pizza.prototype.findPrice = function() {
+pizza.prototype.findPrice = function() {
   if (this.size === "small") {
   this.price += 9;
 } else if (this.size === "medium") {
   this.price += 11;
 } else if (this.size === "large") {
   this.price += 13;
+}
+
+for (var i = 0; i < this.toppings.length; i++) {
+  this.price += .5;
+}
+
+if (this.delivery === "delivery") {
+  this.price += 2;
+}
+
+return this.price.toFixed(2);
 }
