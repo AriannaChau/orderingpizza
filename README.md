@@ -10,6 +10,10 @@ This program will allow customers to order a pizza and choose it's size, topping
 
 ## Link to Site
 
+https://ariannachau.github.io/orderingpizza/
+
+## Specs
+
 * Program takes size input
   * Small, Medium, Large
 
@@ -25,7 +29,7 @@ This program will allow customers to order a pizza and choose it's size, topping
 * Program can detect price total.
   * Input: Large, mushrooms, olives, delivery
   * Output: $17
-  
+
 ## Setup/Installation Requirements
 
 * Have the latest CSS, Bootstrap and jQuery installed
