@@ -3,6 +3,21 @@ body {
   font-family: Raleway;
 
 }
+#confirmPizza {
+  display: none;
+}
+
+#userAddress {
+  display: none;
+}
+
+#confirmationDelivery {
+  display: none;
+}
+
+#confirmationPickup {
+  display: none;
+}
 
 .jumbotron {
   background-image: url("../img/pizzaheader.jpg");

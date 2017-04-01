@@ -13,52 +13,82 @@
       <h1>Ree's Pizzereea</h1>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-md-5" id="createPizza">
+      <div class="row" id="createPizza">
+        <div class="col-md-5">
           <h2>Create your pizza!</h2>
           <form id="createPizza">
             <div class="form-group">
               <label for=size>Pick your size</label>
               <select class="form-control" id="size">
                 <option value="none">Please select size</option>
-                <option value="small">Small ($9.00)</option>
-                <option value="medium">Medium ($11.00)</option>
-                <option value="large">Large ($13.00)</option>
+                <option value="Small">Small ($9.00)</option>
+                <option value="Medium">Medium ($11.00)</option>
+                <option value="Large">Large ($13.00)</option>
               </select>
             </div>
             <div class="form-group">
               <label>Toppings (50¢ each)</label><br>
-              <input type="checkbox" name="toppings" value="onions"> Onions<br>
-              <input type="checkbox" name="toppings" value="mushrooms"> Mushrooms<br>
-              <input type="checkbox" name="toppings" value="pineapple"> Pineapple<br>
-              <input type="checkbox" name="toppings" value="peppers"> Green peppers<br>
-              <input type="checkbox" name="toppings" value="olives"> Olives<br>
-              <input type="checkbox" name="toppings" value="spinach"> Spinach<br>
-              <input type="checkbox" name="toppings" value="vegan pepperoni"> Vegan pepperoni<br>
-              <input type="checkbox" name="toppings" value="sausage"> Sausage<br>
-              <input type="checkbox" name="toppings" value="grilled chicken"> Grilled chicken<br>
-              <input type="checkbox" name="toppings" value="canadian bacon"> Canadian bacon<br>
-              <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni<br>
-              <input type="checkbox" name="toppings" value="bacon"> Bacon<br>
+              <input type="checkbox" name="toppings" value="Onions"> Onions<br>
+              <input type="checkbox" name="toppings" value="Mushrooms"> Mushrooms<br>
+              <input type="checkbox" name="toppings" value="Pineapple"> Pineapple<br>
+              <input type="checkbox" name="toppings" value="Peppers"> Green peppers<br>
+              <input type="checkbox" name="toppings" value="Olives"> Olives<br>
+              <input type="checkbox" name="toppings" value="Spinach"> Spinach<br>
+              <input type="checkbox" name="toppings" value="Vegan pepperoni"> Vegan pepperoni<br>
+              <input type="checkbox" name="toppings" value="Sausage"> Sausage<br>
+              <input type="checkbox" name="toppings" value="Grilled chicken"> Grilled chicken<br>
+              <input type="checkbox" name="toppings" value="Canadian bacon"> Canadian bacon<br>
+              <input type="checkbox" name="toppings" value="Pepperoni"> Pepperoni<br>
+              <input type="checkbox" name="toppings" value="Bacon"> Bacon<br>
             </div>
-              <p><strong>Will this be for delivery or pickup?</strong></p>
-              <div class="col-md-5">
-                <input type="radio" name="delivery" value="delivery"> Delivery (+$2.00)
+            <p><strong>Will this be for delivery or pickup?</strong></p>
+            <div class="col-md-6">
+              <input type="radio" name="delivery" value="Delivery"> Delivery (+$2.00)
             </div>
-            <div class="col-md-5">
-              <input type="radio" name="delivery" value="pickup"> Pickup
+            <div class="col-md-6">
+              <input type="radio" name="delivery" value="Pickup"> Pickup
             </div>
-            <button type="submit" class="btn">Confirm your order</button>
+            <button type="submit" class="btn">Review your pizza</button>
           </form>
         </div>
-        <div class="col-md-5">
-          <div id="confirmPizza">
+      </div>
+      <div id="userAddress">
+        <div class="row">
+          <div class="col-md-5">
+            <form id="deliveryInfo">
+              <h2>Please fill out the following so we can get the pizza to you!</h2>
+              <div class="form-group">
+                <label for="address">Address:</label>
+                <input class="form-control" id="address" type="text"></input>
+                <label for="city">City:</label>
+                <input class="form-control" id="city" type="text">
+                <label for="state">State:</label><br>
+                <input class="form-control" id="state" type="text"></input>
+                <label for="zipcode">Zipcode:</label><br>
+                <input class="form-control" id="zipcode" type="text"></input>
+              </div>
+              <button type="submit" class="btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="confirmPizza">
+        <div class="row">
+          <div class="col-md-5">
             <h2>Order Summary</h2>
             <p>Size: <span class="size"></span></p>
             <p>Toppings: <span class="toppings"></span></p>
             <p>How you're getting it: <span class="delivery"></span></p>
             <p>Total cost: <span class="price"></span></p>
+            <button class="btn">Order your pizza!</button>
           </div>
+        </div>
+      </div>
+      <div id="confirmationDelivery">
+        <p>Okay looks good! We will deliver that pizza to <span class="address"></span> <span class="city"></span> <span class="state"></span>, <span class="zipcode"></span>. It looks like there's about a 20 minute ETA. Enjoy!</p>
+      </div>
+      <div id="confirmationPickup">
+        <p>We have received your order! You can pick it up in about 20 minutes!</p>
       </div>
     </div>
   </body>

@@ -5,18 +5,12 @@ function pizza(size, toppings, delivery, price) {
   this.price = 0;
 }
 
-var customerPizza;
-var createPizza = function(size, toppings, delivery, price) {
-  var newPizza = new Pizza(size, toppings, delivery, price);
-    return newPizza;
-}
-
 pizza.prototype.findPrice = function() {
-  if (this.size === "small") {
+  if (this.size === "Small") {
   this.price += 9;
-} else if (this.size === "medium") {
+} else if (this.size === "Medium") {
   this.price += 11;
-} else if (this.size === "large") {
+} else if (this.size === "Large") {
   this.price += 13;
 }
 
@@ -24,9 +18,64 @@ for (var i = 0; i < this.toppings.length; i++) {
   this.price += .5;
 }
 
-if (this.delivery === "delivery") {
+if (this.delivery === "Delivery") {
   this.price += 2;
 }
 
-return this.price.toFixed(2);
+return this.price;
 }
+
+$(function() {
+  $("form#createPizza").submit(function(event) {
+    event.preventDefault();
+    var chosenSize = $("#size").val();
+    var chosenToppings = [];
+    $("input:checkbox[name=toppings]:checked").each(function() {
+      chosenToppings.push($(this).val());
+    });
+
+    delivery = $("input:radio[name=delivery]:checked").val();
+    customerPizza = new pizza(chosenSize, chosenToppings, delivery)
+    var customerTotal = customerPizza.findPrice();
+    $(".size").html(chosenSize);
+    chosenToppings.forEach(function(toppings) {
+      $(".toppings").append("<li>" + toppings + "</li>");
+    });
+
+    $(".delivery").html(delivery);
+    $(".price").html("$" + customerPizza.price);
+    if (delivery === "Delivery") {
+      $("#userAddress").show();
+    } else {
+      $("#confirmPizza").show();
+    }
+    $("#createPizza").hide();
+  });
+
+  $("form#deliveryInfo").submit(function(event) {
+    event.preventDefault();
+    var address = $("input#address").val();
+    var city = $("input#city").val();
+    var state = $("input#state").val();
+    var zipcode = $("input#zipcode").val();
+    $(".address").text(address);
+    $(".city").text(city);
+    $(".state").text(state);
+    $(".zipcode").text(zipcode);
+    $("#confirmPizza").show();
+    $("#userAddress").hide();
+  });
+
+  $("div#confirmPizza").click(function(event) {
+    event.preventDefault();
+    $("#confirmPizza").hide();
+
+    if (delivery === "Delivery") {
+      $("#confirmationDelivery").show();
+    } else {
+      $("#confirmationPickup").show();
+    }
+  });
+
+
+});
